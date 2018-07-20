@@ -17,4 +17,15 @@ pip3.6 install django
 
 # default server
 cd /home/vagrant/glamod/
-django-admin startproject glamod_apps
+
+# get django app
+git clone https://github.com/glamod/glamod-inventory-app.git
+
+cd /home/vagrant/glamod/glamod-inventory-app/
+# get requirements
+pip3.6 install -r requirements.txt
+
+# make sure migrations are up to date
+cd /home/vagrant/glamod/glamod-inventory-app/glamod_inv_site/
+python3.6 manage.py makemigrations
+python3.6 manage.py migrate
